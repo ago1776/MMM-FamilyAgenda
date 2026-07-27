@@ -14,7 +14,7 @@ this module listens to its `CALENDAR_EVENTS` broadcast.
 
 ```bash
 cd ~/MagicMirror/modules
-git clone https://github.com/<your-user>/MMM-FamilyAgenda
+git clone https://github.com/ago1776/MMM-FamilyAgenda
 ```
 
 ```js
@@ -60,3 +60,4 @@ Bring your own API key — none is bundled.
 ## License
 
 MIT © Andreas Göpfert
+
