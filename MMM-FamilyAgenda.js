@@ -22,7 +22,7 @@ Module.register("MMM-FamilyAgenda", {
 		// Optional weather-per-event (needs an OpenWeather key). Geocoding via OpenStreetMap Nominatim.
 		showWeather: false,
 		appid: "",
-		labels: { today: "Today", tomorrow: "Tomorrow", allDay: "all day" }
+		labels: { today: "Today", tomorrow: "Tomorrow", dayAfterTomorrow: null, allDay: "all day" }
 	},
 
 	getStyles() { return ["MMM-FamilyAgenda.css"]; },
@@ -202,6 +202,12 @@ Module.register("MMM-FamilyAgenda", {
 		const delta = Math.round((b - a) / 86400000);
 		if (delta === 0) return this.config.labels.today;
 		if (delta === 1) return this.config.labels.tomorrow;
+		if (delta === 2) {
+			if (this.config.labels.dayAfterTomorrow) return this.config.labels.dayAfterTomorrow;
+			const globalLocale = typeof config !== "undefined" ? (config.locale || config.language) : null;
+			const locale = this.config.locale || globalLocale || "";
+			if (/^de(?:-|$)/i.test(locale)) return "Übermorgen";
+		}
 		return b.toLocaleDateString(this.config.locale || undefined, { day: "2-digit", month: "2-digit" });
 	},
 

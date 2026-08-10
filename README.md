@@ -54,10 +54,10 @@ Bring your own API key — none is bundled.
 | `maximumEventDays`    | number | `10`                            | Max distinct day groups.                               |
 | `maximumEntries`      | number | `18`                            | Max events shown.                                      |
 | `locale`              | string | `null`                          | Locale for dates/times (null = browser default).       |
+| `labels.dayAfterTomorrow` | string/null | `null`                    | Optional label for dates two days away. With German MagicMirror language/locale, `null` automatically renders `Übermorgen`. |
 | `showWeather`         | bool   | `false`                         | Show weather at each event's location.                 |
 | `appid`               | string | `""`                            | OpenWeather API key (only needed for weather).         |
 
 ## License
 
 MIT © Andreas Göpfert
-
